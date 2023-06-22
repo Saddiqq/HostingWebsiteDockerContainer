@@ -1,0 +1,97 @@
+Microsoft Windows [Version 10.0.22621.1848]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\Lenovo\Documents\TechyTribe_UI>docker build -t b2ui .
+[+] Building 0.3s (2/2) FINISHED
+ => [internal] load .dockerignore                                                0.2s
+ => => transferring context: 2B                                                  0.0s
+ => [internal] load build definition from Dockerfile                             0.2s
+ => => transferring dockerfile: 2B                                               0.0s
+ERROR: failed to solve: failed to read dockerfile: open /var/lib/docker/tmp/buildkit-mount2700638115/Dockerfile: no such file or directory
+
+C:\Users\Lenovo\Documents\TechyTribe_UI>docker build -t b2ui .
+[+] Building 0.1s (2/2) FINISHED
+ => [internal] load .dockerignore                                                0.0s
+ => => transferring context: 2B                                                  0.0s
+ => [internal] load build definition from Dockerfile                             0.0s
+ => => transferring dockerfile: 31B                                              0.0s
+ERROR: failed to solve: the Dockerfile cannot be empty
+
+C:\Users\Lenovo\Documents\TechyTribe_UI>docker build -t b2ui .
+[+] Building 16.5s (7/7) FINISHED
+ => [internal] load .dockerignore                                                0.0s
+ => => transferring context: 2B                                                  0.0s
+ => [internal] load build definition from Dockerfile                             0.0s
+ => => transferring dockerfile: 79B                                              0.0s
+ => [internal] load metadata for docker.io/library/nginx:latest                  4.0s
+ => [internal] load build context                                                0.1s
+ => => transferring context: 322B                                                0.0s
+ => [1/2] FROM docker.io/library/nginx@sha256:593dac25b7733ffb7afe1a72649a43e5  11.8s
+ => => resolve docker.io/library/nginx@sha256:593dac25b7733ffb7afe1a72649a43e57  0.1s
+ => => sha256:441a1b46536703aec84bf2cabdd2524d4cc7dad9c677249 41.46MB / 41.46MB  6.4s
+ => => sha256:593dac25b7733ffb7afe1a72649a43e574778bf025ad60514 1.86kB / 1.86kB  0.0s
+ => => sha256:d2b2f2980e9ccc570e5726b56b54580f23a018b7b7314c9ea 1.78kB / 1.78kB  0.0s
+ => => sha256:5b5fe70539cd6989aa19f25826309f9715a9489cf1c0579 29.12MB / 29.12MB  8.2s
+ => => sha256:eb4a57159180767450cb8426e6367f11b999653d8f185b5e3 8.15kB / 8.15kB  0.0s
+ => => sha256:3b9543f2b5005b74aae0ffaa779803f2b162ec3bd461c9e10a216 627B / 627B  0.4s
+ => => sha256:ca89ed5461a9f2c681ebd39ed6583a7405d82f51b42177b7388c9 959B / 959B  0.7s
+ => => sha256:b0e1283145af839c63923f671b4ab6c5d9e22826ab4372c6660db 366B / 366B  1.1s
+ => => sha256:4b98867cde79486d55399cb95957331018b849a2bf04ee9a6 1.21kB / 1.21kB  1.5s
+ => => sha256:4a85ce26214d83c77b5464631a67c71e1c2793b655261befe 1.40kB / 1.40kB  1.9s
+ => => extracting sha256:5b5fe70539cd6989aa19f25826309f9715a9489cf1c057982d6a84  1.7s
+ => => extracting sha256:441a1b46536703aec84bf2cabdd2524d4cc7dad9c6772491e01ff8  1.2s
+ => => extracting sha256:3b9543f2b5005b74aae0ffaa779803f2b162ec3bd461c9e10a2167  0.0s
+ => => extracting sha256:ca89ed5461a9f2c681ebd39ed6583a7405d82f51b42177b7388c99  0.0s
+ => => extracting sha256:b0e1283145af839c63923f671b4ab6c5d9e22826ab4372c6660db5  0.0s
+ => => extracting sha256:4b98867cde79486d55399cb95957331018b849a2bf04ee9a6dcae9  0.0s
+ => => extracting sha256:4a85ce26214d83c77b5464631a67c71e1c2793b655261befe52ba0  0.0s
+ => [2/2] COPY . /usr/share/nginx/html                                           0.5s
+ => exporting to image                                                           0.1s
+ => => exporting layers                                                          0.0s
+ => => writing image sha256:76831019d0f9b84fce2329a23fc174a7ad8ea27dd3b03df1927  0.0s
+ => => naming to docker.io/library/b2ui                                          0.0s
+
+C:\Users\Lenovo\Documents\TechyTribe_UI>docker image ls
+REPOSITORY   TAG       IMAGE ID       CREATED          SIZE
+b2ui         latest    76831019d0f9   40 seconds ago   187MB
+
+C:\Users\Lenovo\Documents\TechyTribe_UI>docker run -p 80:80 -d b2ui
+1cce6a063ca0cb97b62cd4d3520212c0ead6acc21c143f07655ba573f2f50fb1
+
+C:\Users\Lenovo\Documents\TechyTribe_UI>docker run -p 80:80 -d b2ui
+e8e915183637738d7e299928fda5a1ebc2870921750794da79c4d7a5ab124ca4
+docker: Error response from daemon: driver failed programming external connectivity on endpoint wizardly_proskuriakova (41c1f2d96d55f3488b5e5940aa6d3c51736f4d4af22f27e1f3a536bf27e5dcb7): Bind for 0.0.0.0:80 failed: port is already allocated.
+
+C:\Users\Lenovo\Documents\TechyTribe_UI>
+
+C:\Users\Lenovo\Documents\TechyTribe_UI>netstat -ano | findstr :80
+  TCP    0.0.0.0:80             0.0.0.0:0              LISTENING       11204
+  TCP    192.168.100.118:50428  192.229.221.95:80      CLOSE_WAIT      4844
+  TCP    192.168.100.118:50506  192.229.221.95:80      CLOSE_WAIT      14204
+  TCP    192.168.100.118:50778  192.168.100.83:8009    ESTABLISHED     8740
+  TCP    192.168.100.118:52107  192.168.100.83:8008    ESTABLISHED     8740
+  TCP    [::]:80                [::]:0                 LISTENING       11204
+  TCP    [::1]:80               [::]:0                 LISTENING       15948
+  TCP    [2001:1670:18:7fb2:cd55:8c15:aeec:ca4]:52450  [2606:50c0:8000::154]:443  ESTABLISHED     8740
+
+C:\Users\Lenovo\Documents\TechyTribe_UI>docker run -p 80:80 -d b2ui
+^C
+C:\Users\Lenovo\Documents\TechyTribe_UI>docker run -p 80:80 -d b2ui
+49f1c90b19a6c5527af67ba7fba804ccbc6fa343855431a154dd40abcfa2f8cb
+
+C:\Users\Lenovo\Documents\TechyTribe_UI>docker image ls
+REPOSITORY   TAG       IMAGE ID       CREATED          SIZE
+b2ui         latest    76831019d0f9   30 minutes ago   187MB
+
+C:\Users\Lenovo\Documents\TechyTribe_UI>docker run -p 80:80 -d 768
+3652b480a1b73de2f63fd9cf18cf346a9f36f03dee4d1147b4364c5a73810d6f
+docker: Error response from daemon: driver failed programming external connectivity on endpoint elegant_villani (ad26efbfe53f865f6ad9ec983661f398e87aaae554e76e52e2670bc1257cca18): Bind for 0.0.0.0:80 failed: port is already allocated.
+
+C:\Users\Lenovo\Documents\TechyTribe_UI>docker run -p 80:80 -d b2ui
+24891940641c4876c054b536cb3de55f27ed9a04a4b44299921cedeb10cf4018
+docker: Error response from daemon: driver failed programming external connectivity on endpoint nifty_shaw (4f0ee689956d09e6769f9b6def44f4b126e86f7a980eed76df11135fae0c33e0): Bind for 0.0.0.0:80 failed: port is already allocated.
+
+C:\Users\Lenovo\Documents\TechyTribe_UI>docker run -p 9090:80 -d b2ui
+ce07a4f40e3ad6e5f678265ac7ebf8207a619c6185116f442f51598ae564387a
+
+C:\Users\Lenovo\Documents\TechyTribe_UI>
