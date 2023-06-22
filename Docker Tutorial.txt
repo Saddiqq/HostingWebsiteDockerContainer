@@ -1,0 +1,24 @@
+docker version: to check id docker is installed
+Docker Container is just like a process, it has a process id.
+w/ Docker you can build an image and from the image you can run the Container, 
+you can run multiple springboot application using doocker the only limitation is the hardware.
+Docker File (is like an installation Setup file that build the Image) > Image (is the program it self) > Container (is th process of running the image) 
+
+
+1- create an index.html file
+2- open cmd and type: code . 
+3- it will open VS
+4- add title to  the html doc
+5- add body to the doc
+6- add a heading in the body  
+7- add a list to the body: 
+8- create a Dockerfile (same spelling) in the same project
+9- inside the Dockerfile type:  FROM nginx
+10-type: COPY . usr/share/nginx/html
+11- GO back to the file TechTribe and type: CMD
+12- docker build -t b2ui . 
+13- to check the inage: image ls
+14- run the prgram type:  docker run -p 80:80 -d b2ui (-p for port / -d for detach mode: run in background) 
+14- then access it through chrome by accessing ip  
+15- to stop and delete used container type: docker stop Container_Name
+16- to remove the docker image type: docker rm Image_Name
